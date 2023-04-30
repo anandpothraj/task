@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchFeeds = createAsyncThunk('feed/fetchFeeds', (pageNo) => {
     return axios.get(`https://cea13314-94c5-4b7f-b96f-546f2fb397c9.mock.pstmn.io/jptest?page=${pageNo}`)
-    .then((response) => response.data);
+    .then((response) => response.data.data.recruits);
 })
 
 const feedSlice = createSlice({
@@ -21,7 +21,7 @@ const feedSlice = createSlice({
         }) 
         builder.addCase(fetchFeeds.fulfilled, (state, action) => {
             state.loading = false
-            state.feeds = action.payload
+            state.feeds = state.feeds.concat(action.payload);
             state.error = ''
         })
         builder.addCase(fetchFeeds.rejected, (state, action) => {

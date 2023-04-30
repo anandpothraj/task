@@ -20,7 +20,7 @@ module.exports = {
       'blue': '#2196F3',
     },
     fontFamily: {
-      sans: ['Noto Sans', 'sans-serif'],
+      sans: ['Noto Sans', 'Noto Sans JP', 'sans-serif'],
     },
     rounded : {
       'rounded01' : '18px'
